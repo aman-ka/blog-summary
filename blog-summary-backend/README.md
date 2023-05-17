@@ -2,7 +2,7 @@
 
 ## Steps :-
 
-## 1. node version used 18.1.0
+## 1. node version used 18.10.0
 
 ## 2. yarn
 
