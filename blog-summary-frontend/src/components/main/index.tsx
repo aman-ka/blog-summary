@@ -5,20 +5,19 @@ import axios from "axios";
 import { DownloadOutlined } from "@ant-design/icons";
 
 export const Main: React.FC = () => {
-
   /**
-   * * Note already visited sumaries can be retrived with article code after saving any summary
-   * ! As it is on page/module code state manangement is not required
+   * * Note already visited summaries can be retrieved with article code after saving any summary
+   * ! As it is on page/module code state management is not required
    */
 
-  const [search, setsearch] = useState([]);
+  const [search, setSearch] = useState([]);
   const [summaries, setSummaries] = useState([]);
   const [loading, setLoading] = useState(null);
   const { Panel } = Collapse;
 
-  const onSearchFeildChange = (val) => {
+  const onSearchFieldChange = (val) => {
     const urlArray = val.target.value.split(',');
-    setsearch(urlArray);
+    setSearch(urlArray);
   }
 
   // Get Summary with article url
@@ -35,8 +34,6 @@ export const Main: React.FC = () => {
     setLoading(false);
     setSummaries(getTextfromUrl.data.summaries);
   }
-
-
 
   // Save summary
   const onSave = async (index, bulkSave) => {
@@ -60,7 +57,7 @@ export const Main: React.FC = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(document.location.search)
     if(searchParams.get('url')){
-      setsearch([searchParams.get('url')]);
+      setSearch([searchParams.get('url')]);
     }
   },[]);
 
@@ -72,7 +69,7 @@ export const Main: React.FC = () => {
           <Card className="input-card">
             <Tag color="cyan">Enter comma separated Urls</Tag><br />
             <br />
-            <Input className="search" onChange={onSearchFeildChange} value={search} size="large" placeholder="Enter Doc URL" multiple/>
+            <Input className="search" onChange={onSearchFieldChange} value={search} size="large" placeholder="Enter Doc URL" multiple/>
             <br />
             <br />
             <Button className="search-button" onClick={onSearch}>

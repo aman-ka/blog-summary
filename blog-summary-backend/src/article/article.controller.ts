@@ -19,14 +19,14 @@ export class ArticleController {
   async insertArticle(@Body() createArticleDto: ArticleDto): Promise<object> {
     const saveResponse = [];
     // creates random user for now with random credentials
-    const userCreds = await this.articleService.createAnonymousUser();
+    const userCredentials = await this.articleService.createAnonymousUser();
 
-    // loop thorugh summary payload and save it in db
+    // loop through summary payload and save it in db
     for (const payload of createArticleDto.data) {
       const response = {};
       response['url'] = payload.url;
       const articleResponse = await this.articleService.insertArticleSummary(
-        userCreds,
+        userCredentials,
         payload.summary,
         payload.url,
       );
@@ -52,7 +52,7 @@ export class ArticleController {
         await this.articleService.processText(url);
       response['article'] = processedTextResponse;
 
-      // Get Summary of it from chatgpt api
+      // Get Summary of it from OpenAI api
       const articleSummaryResponse = await this.articleService.getTextSummary(
         processedTextResponse,
       );
