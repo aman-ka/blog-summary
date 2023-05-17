@@ -10,7 +10,7 @@
 
 ```
 
-# Database creds
+# Database credentials
 
 DB_PORT= <port>
 DB_HOST= <host>
@@ -53,7 +53,7 @@ body:{
 ```
   The following features can be added with the existing code :-
     - [/] User association with articles
-    - [/] Articles can be retrived with article code (you can see it in response of /article api)
+    - [/] Articles can be retrieved with article code (you can see it in response of /article api)
     - [/] etc
 
   As features mentioned above is out of the scope of task sheet.Hence, not implemented.
