@@ -7,7 +7,7 @@ services:
     volumes:
       - /data/postgres:/data/postgres
     env_file:
-      - docker.env
+      - .env
 
   pgadmin:
     image: dpage/pgadmin4:6.18
@@ -18,12 +18,12 @@ services:
     volumes:
       - /data/pgadmin:/root/.pgadmin
     env_file:
-      - docker.env
+      - .env
 
   backend:
-    image: nestjs-api
+    build: blog-summary-backend/.
     env_file:
-      - .env
+      - ./blog-summary-backend/.env
     ports:
       - "4001:5000"
     depends_on:

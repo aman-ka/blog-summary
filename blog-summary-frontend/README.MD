@@ -9,10 +9,11 @@
 ## 3. create .env file
 
 ```
-REACT_APP_BACKEND_URL = 'http://localhost:5000'
+REACT_APP_BACKEND_URL = 'http://localhost:4001'
 ```
 
 ## 4. Front end should be up and running at this stage
+
 ## Note :-
 
 ```
